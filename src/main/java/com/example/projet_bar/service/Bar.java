@@ -1,4 +1,4 @@
-package service;
+package com.example.projet_bar.service;
 
 // Importe toutes les classes du modèle pour pouvoir les utiliser
 import com.example.projet_bar.Model.*;
