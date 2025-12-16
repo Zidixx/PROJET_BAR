@@ -1,7 +1,7 @@
 package com.example.projet_bar.service;
 
 // Importe toutes les classes du modèle pour pouvoir les utiliser
-import com.example.projet_bar.Model.*;
+import com.example.projet_bar.model.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

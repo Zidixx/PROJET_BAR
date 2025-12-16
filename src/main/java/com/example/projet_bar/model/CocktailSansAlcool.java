@@ -2,10 +2,6 @@ package com.example.projet_bar.model;
 
 import java.util.Map;
 
-package com.example.projet_bar.model;
-
-import java.util.Map;
-
 /**
  * Représente un cocktail sans alcool. Hérite de Cocktail.
  */

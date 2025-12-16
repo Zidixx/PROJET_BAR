@@ -1,4 +1,4 @@
-package com.example.projet_bar.Model;
+package com.example.projet_bar.model;
 
 public class Client {
 
