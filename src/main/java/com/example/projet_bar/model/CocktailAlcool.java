@@ -1,57 +1,32 @@
 package com.example.projet_bar.model;
 
-import java.util.Map;
-
 /**
- * Représente un cocktail avec alcool. Hérite de Cocktail.
+ * Représente un cocktail contenant de l'alcool.
  */
 public class CocktailAlcool extends Cocktail {
 
-    // --- Attributs spécifiques ---
-    private final double degreAlcool;
-
-    // --- Constructeur ---
+    private final double degreAlcoolTotal;
 
     /**
-     * Constructeur d'un CocktailAlcool.
+     * Constructeur.
+     * @param nom Le nom du cocktail.
+     * @param prixBase Le prix de vente de base.
+     * @param degreAlcoolTotal Le degré d'alcool du mélange final.
      */
-    public CocktailAlcool(String nom, Map<Boisson, Integer> recette, double prixBase) {
-        super(nom, recette, prixBase, true);
-        this.degreAlcool = calculerDegreAlcool();
+    public CocktailAlcool(String nom, double prixBase, double degreAlcoolTotal) {
+        // Appel au constructeur de la classe parente Cocktail
+        super(nom, prixBase);
+        this.degreAlcoolTotal = degreAlcoolTotal;
     }
 
-    // --- Méthodes Métier spécifiques ---
-
-    /**
-     * Calcule le degré d'alcool final du cocktail.
-     * @return Le degré d'alcool du cocktail (e.g., 0.15 pour 15%).
-     */
-    private double calculerDegreAlcool() {
-        double volumeTotal = 0.0;
-        double volumeAlcoolPur = 0.0;
-
-        for (Map.Entry<Boisson, Integer> entry : getRecette().entrySet()) {
-            Boisson boisson = entry.getKey();
-            int quantiteMl = entry.getValue();
-
-            volumeTotal += quantiteMl;
-
-            if (boisson.isEstAlcoolisee()) {
-                // Volume Alcool Pur = Quantité * Degré (si 40%, le degré est 0.4)
-                volumeAlcoolPur += (quantiteMl * boisson.getDegreAlcool());
-            }
-        }
-
-        if (volumeTotal > 0) {
-            // Degré d'alcool final = (Volume Alcool Pur total / Volume Total du Cocktail)
-            return (volumeAlcoolPur / volumeTotal);
-        }
-        return 0.0;
+    // Implémentation de la méthode abstraite
+    @Override
+    public boolean isAlcoolise() {
+        return true; // Par définition, c'est un cocktail alcoolisé
     }
 
-    // --- Accesseurs (Getters) ---
-
-    public double getDegreAlcool() {
-        return degreAlcool;
+    // Getter spécifique
+    public double getDegreAlcoolTotal() {
+        return degreAlcoolTotal;
     }
 }

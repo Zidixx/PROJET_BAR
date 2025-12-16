@@ -2,42 +2,38 @@ package com.example.projet_bar.model;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.HashMap; // Ajouté pour initialiser la recette
 
 /**
  * Représente un cocktail de base. Gère la recette et le prix de base.
- * C'est la classe parente.
+ * Rendu ABSTRAIT pour respecter l'héritage.
  */
-public class Cocktail {
+public abstract class Cocktail { // <-- La classe doit être abstraite
 
     // --- Attributs ---
-    private final String nom;
-    private double prixBase;
-    private final boolean estAlcoolise;
+    protected final String nom; // Changé en protected pour l'héritage
+    protected double prixBase; // Changé en protected pour l'héritage
 
     // Map<Boisson, Quantité en ml>
-    private final Map<Boisson, Integer> recette;
+    protected final Map<Boisson, Integer> recette; // Changé en protected pour l'héritage
 
     // --- Constructeur ---
-
-    /**
-     * Constructeur d'un Cocktail.
-     * @param nom Le nom du cocktail.
-     * @param recette La Map contenant les ingrédients (Boisson) et les quantités (Integer).
-     * @param prixBase Le prix de vente de base du cocktail.
-     * @param estAlcoolise Indique si le cocktail contient de l'alcool.
-     */
-    public Cocktail(String nom, Map<Boisson, Integer> recette, double prixBase, boolean estAlcoolise) {
+    // Simplifié pour être appelé par super(nom, prixBase) dans les classes enfants
+    public Cocktail(String nom, double prixBase) {
         this.nom = nom;
-        this.recette = recette;
         this.prixBase = prixBase;
-        this.estAlcoolise = estAlcoolise;
+        this.recette = new HashMap<>();
+    }
+
+    // Ajout d'ingrédients après l'instanciation (utilisé par le Bar)
+    public void ajouterIngredient(Boisson boisson, int quantiteMl) {
+        this.recette.put(boisson, quantiteMl);
     }
 
     // --- Méthodes Métier ---
 
     /**
      * Calcule le coût total de production du cocktail en fonction des ingrédients.
-     * Nécessite que la classe Boisson ait la méthode getPrixUnitaire().
      * @return Le coût total en double.
      */
     public double calculerCoutProduction() {
@@ -46,14 +42,30 @@ public class Cocktail {
             Boisson boisson = entry.getKey();
             int quantiteMl = entry.getValue();
 
-            // Le coût est la quantité utilisée * le prix de l'unité de stock
-            cout += (boisson.getPrixUnitaire() * quantiteMl);
+            // CORRECTION: Utiliser getCoutUnitaire() (méthode existante dans Boisson)
+            cout += (boisson.getCoutUnitaire() * quantiteMl);
         }
         return cout;
     }
 
-    // --- Accesseurs (Getters) et Mutateurs (Setters) ---
+    /**
+     * CALCULE LE PRIX DE VENTE FINAL
+     * Ceci est la méthode que Commande.calculerPrixTotal() attend.
+     * @return Le prix de vente final.
+     */
+    public double getPrix() {
+        // Prix de vente = Prix de base + Coût de production
+        // Vous pouvez ajuster la marge ici si nécessaire.
+        return this.prixBase + this.calculerCoutProduction();
+    }
 
+    /**
+     * Définit si le cocktail est alcoolisé. Doit être implémenté par les enfants.
+     */
+    public abstract boolean isAlcoolise();
+
+
+    // --- Accesseurs (Getters) ---
     public String getNom() {
         return nom;
     }
@@ -68,14 +80,6 @@ public class Cocktail {
         }
     }
 
-    public boolean isEstAlcoolise() {
-        return estAlcoolise;
-    }
-
-    /**
-     * Retourne la recette. Utilisé Collections.unmodifiableMap pour l'encapsulation.
-     * @return Une Map non modifiable de la recette.
-     */
     public Map<Boisson, Integer> getRecette() {
         return Collections.unmodifiableMap(recette);
     }

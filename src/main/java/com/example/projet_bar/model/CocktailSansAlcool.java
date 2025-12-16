@@ -1,43 +1,32 @@
 package com.example.projet_bar.model;
 
-import java.util.Map;
-
 /**
- * Représente un cocktail sans alcool. Hérite de Cocktail.
+ * Représente un cocktail sans alcool (mocktail).
  */
 public class CocktailSansAlcool extends Cocktail {
 
-    // --- Attributs spécifiques ---
-    private boolean estJusFrais;
-
-    // --- Constructeur ---
-
-    public CocktailSansAlcool(String nom, Map<Boisson, Integer> recette, double prixBase, boolean estJusFrais) {
-        super(nom, recette, prixBase, false);
-        this.estJusFrais = estJusFrais;
-        appliquerSurcoutJusFrais();
-    }
-
-    // --- Méthodes Métier spécifiques ---
+    private final boolean estJusDeFruit;
 
     /**
-     * Applique un surcoût si le cocktail utilise des jus frais, modifiant le prix de base.
+     * Constructeur.
+     * @param nom Le nom du cocktail.
+     * @param prixBase Le prix de vente de base.
+     * @param estJusDeFruit Indique si la base est un jus de fruit.
      */
-    private void appliquerSurcoutJusFrais() {
-        if (this.estJusFrais) {
-            // Exemple de logique: 10% de surcoût pour le travail/qualité des jus frais
-            double surcout = getPrixBase() * 0.10;
-            setPrixBase(getPrixBase() + surcout);
-        }
+    public CocktailSansAlcool(String nom, double prixBase, boolean estJusDeFruit) {
+        // Appel au constructeur de la classe parente Cocktail
+        super(nom, prixBase);
+        this.estJusDeFruit = estJusDeFruit;
     }
 
-    // --- Accesseurs (Getters) et Mutateurs (Setters) ---
-
-    public boolean isEstJusFrais() {
-        return estJusFrais;
+    // Implémentation de la méthode abstraite
+    @Override
+    public boolean isAlcoolise() {
+        return false; // Par définition, c'est un cocktail sans alcool
     }
 
-    public void setEstJusFrais(boolean estJusFrais) {
-        this.estJusFrais = estJusFrais;
+    // Getter spécifique
+    public boolean estJusDeFruit() {
+        return estJusDeFruit;
     }
 }

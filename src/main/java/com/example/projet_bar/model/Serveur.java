@@ -11,7 +11,7 @@ public class Serveur extends Employe {
      * @param anciennete L'ancienneté (années)
      * @param vitesseService Niveau de compétence en vitesse (1 à 10)
      */
-    public Serveur(String nom, int anciennete, int vitesseService) {d
+    public Serveur(String nom, int anciennete, int vitesseService) {
         super(nom, anciennete);
         this.vitesseService = vitesseService;
     }

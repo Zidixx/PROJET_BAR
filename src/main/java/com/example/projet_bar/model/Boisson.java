@@ -2,46 +2,33 @@ package com.example.projet_bar.model;
 
 import java.util.Objects;
 
+// Assurez-vous que ce code écrase le contenu de Boisson.java
 public class Boisson {
 
     private String nom;
     private double degreAlcool;
     private double coutUnitaire;
 
-    /**
-     * Constructeur de la classe Boisson (l'ingrédient).
-     * @param nom Le nom de la boisson (ex: "Rhum Blanc").
-     * @param degreAlcool Le degré d'alcool de la boisson.
-     * @param coutUnitaire Le coût d'achat par centilitre (cL).
-     */
     public Boisson(String nom, double degreAlcool, double coutUnitaire) {
         this.nom = nom;
         this.degreAlcool = degreAlcool;
         this.coutUnitaire = coutUnitaire;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public double getDegreAlcool() {
-        return degreAlcool;
-    }
-
+    // Fournit la méthode que Cocktail.java attendait (getCoutUnitaire)
     public double getCoutUnitaire() {
         return coutUnitaire;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Boisson boisson = (Boisson) o;
-        return Objects.equals(nom, boisson.nom);
+    // Fournit la méthode que CocktailAlcool/CocktailSansAlcool attendait
+    public boolean isEstAlcolisee() {
+        return this.degreAlcool > 0.0;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(nom);
-    }
+    // Autres Getters/Equals/Hashcode...
+    public String getNom() { return nom; }
+    public double getDegreAlcool() { return degreAlcool; }
+
+    @Override public boolean equals(Object o) { /*...*/ return Objects.equals(nom, ((Boisson) o).nom); }
+    @Override public int hashCode() { return Objects.hash(nom); }
 }

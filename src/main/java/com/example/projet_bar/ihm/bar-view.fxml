@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox fx:controller="com.example.projet_bar.ihm.BarController"
+      xmlns:fx="http://javafx.com/fxml"
+      alignment="TOP_CENTER"
+      spacing="10"
+      style="-fx-padding: 20;">
+
+    <Label text="🍹 Gestion du Bar" style="-fx-font-size: 18pt; -fx-font-weight: bold;"/>
+
+    <Label text="Étape 1 : Création du menu et du stock" style="-fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Afficher le Menu" fx:id="btnAfficherMenu" />
+        <Button text="Tester le Stock" fx:id="btnTesterStock" />
+    </HBox>
+
+    <Label fx:id="lblResultat" text="Résultats des tests ici..." style="-fx-text-fill: blue;"/>
+
+</VBox>
