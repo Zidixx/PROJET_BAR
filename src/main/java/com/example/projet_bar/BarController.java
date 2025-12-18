@@ -191,10 +191,10 @@ public class BarController {
     }
 
     private void initialiserDonnees() {
-        leBarman = new Barman("Puff", "Daddy", 3, 15);
+        leBarman = new Barman("Daddy", "Puff", 3, 15);
         monBar.ajouterEmploye(leBarman);
-        monBar.ajouterEmploye(new Serveur("Laouani", "Sarah", 1, 10));
-        monBar.ajouterEmploye(new Serveur("Faure", "Melissa", 2, 10));
+        monBar.ajouterEmploye(new Serveur("Pina", "Claudia", 1, 10));
+        monBar.ajouterEmploye(new Serveur("Campos", "O", 2, 10));
 
         Boisson rhum = new Boisson("Rhum", 15.0, 0.10);
         Boisson menthe = new Boisson("Sirop Menthe", 5.0, 0.8);
@@ -227,8 +227,8 @@ public class BarController {
         monBar.getStock().put(champagne, 2000);
 
         CocktailAlcool mojito = new CocktailAlcool("Mojito", 12.0, 12.0);
-        mojito.ajouterIngredient(rhum, 50);
-        mojito.ajouterIngredient(menthe, 20);
+        mojito.ajouterIngredient(rhum, 40);
+        mojito.ajouterIngredient(menthe, 15);
         mojito.ajouterIngredient(eau, 150);
         monBar.ajouterAuMenu(mojito);
 
@@ -251,9 +251,9 @@ public class BarController {
         monBar.ajouterAuMenu(sunrise);
 
         CocktailSansAlcool virgin = new CocktailSansAlcool("Virgin Mojito", 8.0, false);
-        virgin.ajouterIngredient(eau, 200);
-        virgin.ajouterIngredient(menthe, 30);
-        virgin.ajouterIngredient(jusCitron, 20);
+        virgin.ajouterIngredient(eau, 10);
+        virgin.ajouterIngredient(menthe, 10);
+        virgin.ajouterIngredient(jusCitron, 100);
         monBar.ajouterAuMenu(virgin);
     }
 }
