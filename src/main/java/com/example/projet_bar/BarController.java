@@ -240,7 +240,7 @@ public class BarController {
 
         CocktailAlcool margarita = new CocktailAlcool("Margarita", 13.0, 15.0);
         margarita.ajouterIngredient(tequila, 50);
-        margarita.ajouterIngredient(tripleSec, 20);
+        margarita.ajouterIngredient(tripleSec, 10);
         margarita.ajouterIngredient(jusCitron, 30);
         monBar.ajouterAuMenu(margarita);
 
