@@ -1,51 +1,33 @@
-C'est noté, j'ai corrigé le point de lancement et les noms des développeurs. Voici la version finale de ton **README.md** prête à être copiée.
+Voici un **README.md** simplifié, sans fioritures, idéal pour Nathan et Enzo afin de présenter le projet proprement.
 
 ---
 
-# 🍹 Projet JavaFX : Café Maritime Club
+# 🍹 Projet Java : Gestion du Café Maritime Club
 
-## 📝 Présentation
+## 📖 Description
 
-Ce projet est une application de gestion de bar complète développée en **Java** avec **JavaFX**. Elle permet de gérer la prise de commande, le suivi des stocks, la facturation et la coordination du personnel.
+Ce logiciel permet de gérer les ventes et les stocks d'un bar club. Il a été conçu en **Java** avec l'interface **JavaFX**.
 
-L'architecture repose sur une séparation stricte entre la **logique métier** (Model/Service) et l'**interface graphique** (Controller/FXML) pour garantir un code maintenable et évolutif.
+## 🚀 Fonctionnalités
 
----
+* **Interface d'accueil** : Un écran simple pour ouvrir le bar et accéder aux commandes.
+* **Prise de commande** : Sélection des cocktails dans une liste et ajout au panier.
+* **Calcul dynamique** : Gestion automatique du total avec une option **Happy Hour** (-25%).
+* **Système de Pourboires** : Choix du montant du pourboire (5%, 10%, 20% ou libre) avant de payer.
+* **Ticket de Caisse** : Génération d'un ticket détaillé avec le serveur, la date, le mode de paiement et le total.
+* **Gestion des Stocks** : Visualisation en temps réel des ml restants pour chaque boisson.
 
-## 🚀 Fonctionnalités principales
 
-### 1. Gestion des Cocktails & Ingrédients
+## 💻 Lancement
 
-* **Menu Dynamique** : Affichage automatique de la carte avec distinction visuelle entre boissons avec et sans alcool.
-* **Recettes & Production** : Chaque cocktail possède une recette précise déduisant automatiquement les ingrédients du stock lors de la vente.
-* **Marge Commerciale** : Le système calcule automatiquement le prix final en appliquant une marge de **25%** sur le coût de revient total.
+1. Ouvrir le projet dans un IDE (IntelliJ).
+2. Lancer la classe : **`BarApplication`**.
 
-### 2. Gestion des Stocks
-
-* **Suivi en temps réel** : Visualisation de l'état des stocks (en ml ou doses) via un panneau dédié.
-* **Inventaire sécurisé** : Mise à jour immédiate du stock après chaque préparation pour éviter les ruptures.
-
-### 3. Facturation & Vente
-
-* **Happy Hour** : Activation d'une remise globale de **25%** sur la commande via un bouton toggle.
-* **Système Facturable** : Utilisation d'une interface de facturation pour gérer les prix totaux et les réductions.
-* **Ticket de Caisse** : Génération d'un récapitulatif textuel incluant le nom du serveur, le client et le détail des montants.
-
----
-
-## 🛠️ Installation & Lancement
-
-1. Cloner le dépôt du projet.
-2. Importer le projet dans votre IDE (IntelliJ IDEA recommandé).
-3. Lancer l'application via la classe : **`BarApplication`**.
-
----
-
-## 👥 Équipe de Développement
+## 👥 Équipe
 
 * **Nathan Loubet**
 * **Enzo Faure**
 
 ---
 
-Souhaites-tu que j'ajoute une capture d'écran de l'interface ou un guide pour ajouter de nouveaux cocktails dans la base de données ?
+Would you like me to add a small section on how to add a new drink to the menu in this simplified README?
