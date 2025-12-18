@@ -1,39 +1,29 @@
 package com.example.projet_bar.model;
 
-public class Employe {
-
+public abstract class Employe {
 
     private int id;
     protected String nom;
+    protected String prenom;
     private int anciennete;
     private static int compteurId = 100;
 
-    /**
-     * CONSTRUCTEUR OBLIGATOIRE POUR QUE super() FONCTIONNE
-     */
-    public Employe(String nom, int anciennete) {
+    public Employe(String nom, String prenom, int anciennete) {
         this.id = compteurId++;
         this.nom = nom;
+        this.prenom = prenom;
         this.anciennete = anciennete;
     }
 
-    /**
-     * MÉTHODE DE BASE 'travailler' (Pour que l'override dans Serveur fonctionne)
-     */
-    public void travailler() {
-        System.out.println(this.nom + " travaille...");
+    public abstract void travailler();
+
+    public int getId() { return id; }
+    public String getNom() { return nom; }
+    public String getPrenom() { return prenom; }
+
+    public String getNomComplet() {
+        return prenom + " " + nom.toUpperCase();
     }
 
-    // Getters
-    public int getId() {
-        return id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public int getAnciennete() {
-        return anciennete;
-    }
+    public int getAnciennete() { return anciennete; }
 }

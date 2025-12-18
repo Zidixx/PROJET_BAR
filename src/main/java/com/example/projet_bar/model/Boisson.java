@@ -2,7 +2,6 @@ package com.example.projet_bar.model;
 
 import java.util.Objects;
 
-// Assurez-vous que ce code écrase le contenu de Boisson.java
 public class Boisson {
 
     private String nom;
@@ -15,17 +14,14 @@ public class Boisson {
         this.coutUnitaire = coutUnitaire;
     }
 
-    // Fournit la méthode que Cocktail.java attendait (getCoutUnitaire)
     public double getCoutUnitaire() {
         return coutUnitaire;
     }
 
-    // Fournit la méthode que CocktailAlcool/CocktailSansAlcool attendait
     public boolean isEstAlcolisee() {
         return this.degreAlcool > 0.0;
     }
 
-    // Autres Getters/Equals/Hashcode...
     public String getNom() { return nom; }
     public double getDegreAlcool() { return degreAlcool; }
 

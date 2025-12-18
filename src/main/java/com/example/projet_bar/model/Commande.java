@@ -3,10 +3,6 @@ package com.example.projet_bar.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Représente une commande passée par un Client, contenant une liste de Cocktails.
- * Implémente Facturable pour les calculs de prix.
- */
 public class Commande implements Facturable {
 
     private int id;
@@ -35,8 +31,6 @@ public class Commande implements Facturable {
         this.cocktails.add(cocktail);
     }
 
-    // --- Implémentation des méthodes de l'interface Facturable ---
-
     /**
      * Calcule le prix total de tous les cocktails dans la commande.
      * @return Le prix total non réduit.
@@ -59,11 +53,9 @@ public class Commande implements Facturable {
     public double appliquerReduction(double pourcentage) {
         double totalInitial = calculerPrixTotal();
         double reduction = totalInitial * pourcentage;
-        // La méthode Math.max(0, ...) empêche un prix final négatif par erreur
         return Math.max(0, totalInitial - reduction);
     }
 
-    // Getters essentiels
     public int getId() {
         return id;
     }
@@ -76,7 +68,6 @@ public class Commande implements Facturable {
         return client;
     }
 
-    // Mutateur
     public void setEstPayee(boolean estPayee) {
         this.estPayee = estPayee;
     }

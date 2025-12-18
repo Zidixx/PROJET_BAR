@@ -1,15 +1,7 @@
 package com.example.projet_bar.model;
 
-/**
- * Interface pour tout objet pouvant être facturé ou soumis à une réduction.
- * Utilisé par la classe Commande.
- */
 public interface Facturable {
 
-    /**
-     * Calcule le prix total de l'objet (avant réduction/taxe).
-     * @return Le montant total.
-     */
     double calculerPrixTotal();
 
     /**

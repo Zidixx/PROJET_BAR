@@ -1,8 +1,5 @@
 package com.example.projet_bar.model;
 
-/**
- * Représente un cocktail contenant de l'alcool.
- */
 public class CocktailAlcool extends Cocktail {
 
     private final double degreAlcoolTotal;
@@ -19,13 +16,11 @@ public class CocktailAlcool extends Cocktail {
         this.degreAlcoolTotal = degreAlcoolTotal;
     }
 
-    // Implémentation de la méthode abstraite
     @Override
     public boolean isAlcoolise() {
-        return true; // Par définition, c'est un cocktail alcoolisé
+        return true;
     }
 
-    // Getter spécifique
     public double getDegreAlcoolTotal() {
         return degreAlcoolTotal;
     }
