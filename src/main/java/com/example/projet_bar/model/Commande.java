@@ -71,4 +71,28 @@ public class Commande implements Facturable {
     public void setEstPayee(boolean estPayee) {
         this.estPayee = estPayee;
     }
+    public String genererTicket(double reduction, String serveurNom) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("      TICKET DE CAISSE\n");
+        sb.append("--------------------------------\n");
+        sb.append("Serveur: ").append(serveurNom).append("\n");
+        sb.append("Client: ").append(this.client.getNom()).append("\n"); // Utilise l'attribut client de la classe
+        sb.append("--------------------------------\n");
+
+        for (Cocktail c : cocktails) {
+            sb.append(String.format("%-20s %6.2f€\n", c.getNom(), c.getPrix()));
+        }
+
+        double totalInitial = calculerPrixTotal();
+        sb.append("--------------------------------\n");
+        sb.append(String.format("SOUS-TOTAL: %17.2f€\n", totalInitial));
+        if (reduction > 0) {
+            sb.append(String.format("REDUCTION:  -%16.2f€\n", reduction));
+        }
+        sb.append(String.format("TOTAL TTC:  %17.2f€\n", totalInitial - reduction));
+        sb.append("--------------------------------\n");
+        sb.append("          MERCI !");
+
+        return sb.toString();
+    }
 }
